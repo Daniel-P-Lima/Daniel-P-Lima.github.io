@@ -2,9 +2,9 @@
 layout: post
 title: Binary Tree
 date: 2024-10-15 20:00:00
-description: Binary Tree
-tags: binary tree
-categories: algorithms
+description: Understanding What a Binary Tree Is
+tags: math code
+categories: algorithm
 featured: true
 ---
 
