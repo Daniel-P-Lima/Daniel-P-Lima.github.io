@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Contacts. Etc.
+subtitle: About Me. Contacts. Etc.
 
 profile:
   align: right
