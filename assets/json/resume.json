@@ -31,11 +31,9 @@
       "location": "Curitiba, Brazil",
       "url": "https://www.pucpr.br/",
       "area": "Computer Science",
-      "studyType": "PhD",
+      "studyType": "Undergraduate Student",
       "startDate": "2022-01-01",
-      "endDate": "2026-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "endDate": "2026-01-01"    
     }
   ],
   "certificates": [
