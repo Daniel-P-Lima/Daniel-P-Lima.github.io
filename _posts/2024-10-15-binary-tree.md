@@ -1,18 +1,30 @@
 ---
 layout: post
-title: Binary Tree
+title: Understanding Binary Trees and AVL Trees
 date: 2024-10-15 20:00:00
-description: Understanding What a Binary Tree Is
-tags: math code
-categories: algorithm
+description: A Comprehensive Guide to Binary Trees and AVL Trees
+tags: data structures, algorithms, java, programming
+categories: algorithms
 featured: true
+toc:
+  sidebar: left
 ---
 
-### Understanding What a Binary Tree Is
+# Understanding What a Binary Tree Is
 
-A binary tree is a data structure composed of nodes, where each node can have at most two children: one on the left and one on the right. Each node in the tree contains a value and references to its left and right children, which, in turn, can also have their own children, forming the hierarchical structure characteristic of a tree.
+A binary tree is a hierarchical data structure composed of nodes, where each node can have at most two children: a left child and a right child. Each node contains a value and references to its left and right children, which can themselves be roots of their own subtrees, forming a recursive, tree-like structure.
 
-Binary trees are fundamental in the study of data structures, being widely used in algorithms and systems due to their efficiency in searching, inserting, and organizing information. Because of their simplicity and versatility, understanding how they work is essential for advancing in computer science studies.
+Binary trees are fundamental in computer science, widely used in algorithms and systems for efficient searching, inserting, and organizing information. Understanding how they work is essential for advancing in data structures and algorithms.
+
+# Key Concepts
+
+- Root: The topmost node in the tree.
+- Subtree: Each child of a node can be considered the root of its own subtree.
+- Leaf: A node with no children; both its left and right references are null.
+- Height/Depth: The length of the longest path from the root to a leaf node.
+
+- Node in Binary Tree vs. Linked List: Nodes in a binary tree can have two children, while nodes in a linked list have only one next reference.
+Recursion plays a crucial role in binary trees, particularly in traversal and manipulation operations.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -26,32 +38,28 @@ Binary trees are fundamental in the study of data structures, being widely used 
 - Every tree has a height or depth, which is the longest distance from the root to a leaf node.  
 - Note that a node in a binary tree is entirely different from a node in a linked list.  
 
-Recursion is extremely important for binary trees.  
+# Traversal Strategies
 
-## Traversal Strategies  
-There are various ways to traverse a binary tree, but all of them must visit every node in the tree.  
+Traversing a binary tree means visiting every node in a specific order. Recursion is commonly used due to the tree's recursive nature.
 
-This is where recursion plays its most crucial role, being the main mechanism for traversing the tree.  
-
-### Pre-order Traversal  
-An algorithm with the following steps:  
-1. Visit the root of the tree (**imagine this as a `print()` statement**).  
-2. Traverse the left subtree (**this is where recursion begins**).  
-3. Traverse the right subtree.  
+## Pre-order Traversal
+1. Visit the root node.
+2. Traverse the left subtree recursively.
+3. Traverse the right subtree recursively.
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/binary_tree_pre.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-### In-order Traversal
+## In-order Traversal
 
 An algorithm with the following steps:  
 1. Traverse the left subtree.  
 2. Visit the root of the tree.  
 3. Traverse the right subtree.  
 
-**This algorithm is equivalent to displaying the numbers in ascending order.**
+**This traversal results in nodes being visited in ascending order in a binary search tree.**
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/binary_tree_in.png" class="img-fluid rounded z-depth-1" %}
@@ -69,27 +77,27 @@ An algorithm with the following steps:
         {% include figure.liquid loading="eager" path="assets/img/binary_tree_pos.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-
 ---
 
-Algorithms implementing binary trees are typically divided into two stages. The first involves building the tree, and the second involves traversing it.  
+# Building a Binary Search Tree (BST)
 
-## Sorting Strategy  
-To create a Binary Search Tree, it is crucial to know how to build it correctly. An incorrect construction will result in errors in search algorithms.  
+A Binary Search Tree (BST) is a binary tree where each node follows the property:
 
-### Node Insertion  
-1. If the tree is empty, create a tree with a single node containing the value $$N$$.  
-2. If the number $$N$$ is greater than or equal to the value stored in the root node, repeat the procedure on the right subtree of the root node.  
-3. If the number $$N$$ is less than the value stored in the root node, repeat the procedure on the left subtree of the root node.  
+- Left Subtree: Contains values less than the node's value.
+- Right Subtree: Contains values greater than the node's value.
+## Node Insertion Algorithm
+1. If the tree is empty, create a new node as the root with the value N.
+2. If N is less than the current node's value, insert N into the left subtree.
+3. If N is greater than the current node's value, insert N into the right subtree.
+4. Duplicate values are typically not allowed in a BST.
 
 > ##### NOTE
 >
-> Smaller values will always be on the left of the root node, eliminating the
-> entire right side of the tree. If a value is inserted incorrectly, it is necessary to
-> restart the tree creation process.  
+> Note: Smaller values are always on the left of a node, and larger values are on the 
+> right. Correct insertion is crucial for maintaining the BST property.
 {: .block-tip }
 
-Let us say we want to create a Binary Search Tree with the following values:  
+For example, inserting the values:
 $$14, 15, 4, 9, 7, 18, 3, 5, 16, 4, 20, 17, 9, 14, 5$$  
 Following the proposed logic, the resulting tree will be:  
 <div class="row mt-3">
@@ -125,11 +133,9 @@ To simplify this process, two strategies can be employed:
 
 In some cases, it is easier not to remove the node and simply update its information.  
 
-Recursion is also necessary for node removal.  
-
 ## Calculating the Height of a Tree  
 
-To calculate the height of a tree, it is necessary to determine the longest path from node $X$ to one of its descendants. The height of a node $X$ can only be calculated after visiting all of $X$'s descendants. **The height of a leaf node is $0.**  
+To calculate the height of a tree, it is necessary to determine the longest path from node $$X$$ to one of its descendants. The height of a node $$X$$ can only be calculated after visiting all of $$X$$'s descendants. **The height of a leaf node is $$0$$.**  
 
 The process involves visiting all the children and then moving upwards, increasing the height value, calculating it from the bottom up.  
 
@@ -137,12 +143,12 @@ This is very similar to the post-order traversal algorithm.
 
 If a node has a `null` child (no child), a value of `-1` is assigned.  
 ```java
-public static int height(Node no) {  
+public static int height(Node node) {  
     if (no == null) {  
         return -1;  
     }  
-    int left = height(no.getLeftNode());  
-    int right = altura(no.getRightNode());  
+    int left = height(node.getLeftNode());  
+    int right = height(node.getRightNode());  
     if (left > right) {  
         return 1 + left;  
     }  
@@ -150,26 +156,24 @@ public static int height(Node no) {
 }
 ```
 
-## Unbalanced Tree  
+# Balancing the Tree: AVL Trees
 
-When a binary tree is unbalanced, it loses efficiency, requiring balancing to restore optimal performance.  
-**Any modification to the tree, whether inserting or removing a node, necessitates rebalancing.**
+An AVL tree is a self-balancing BST where the difference in heights (balance factor) between the left and right subtrees is at most 1 for all nodes.
 
-### AVL Tree  
-The balancing factor formula:  
+## Balance Factor
+For a node N:
+```java
+balanceFactor = height(N.left) - height(N.right);
+```
+- Balance Factor of 0: Left and right subtrees are of equal height.
+- Balance Factor of 1: Left subtree is one level higher than the right.
+- Balance Factor of -1: Right subtree is one level higher than the left.
+- Balance Factor beyond ±1: The tree is unbalanced at that node.
 
-**The balance factor of a leaf node is always $0$.**  
-The balance factor is calculated using the height of the subtrees:  
-**`Balance Factor = height(node.getLeftNode()) - height(node.getRightNode())`**  
+# Identifying an Unbalanced Tree
+A tree becomes unbalanced when any node has a balance factor less than -1 or greater than 1.
 
-Refer to this visual AVL simulator: [AVL Simulator](https://www.inf.ufsc.br/~aldo.vw/estruturas/simulador/AVL.html)  
-
-### Identifying an Unbalanced Tree  
-
-A tree is unbalanced when a given node has a **balance factor of $$2$$ or $$-2$$**.  
-**The balance factors are always updated dynamically after each operation and should not be stored statically.**
-
-### Rotations  
+# Rotations  
 
 A technique used to balance the tree based on the node that causes the imbalance.  
 
@@ -198,3 +202,444 @@ Perform a **right rotation** on the child, followed by a **left rotation** on th
 #### Second Case  
 When the parent is positive and the child is negative:  
 Perform a **left rotation** on the child, followed by a **right rotation** on the parent. This is known as a **double right rotation**.  
+---
+# Now that we've covered the theory, let's move on to practice.  
+All the code in this article will be written in Java, but feel free to write it in the language of your choice.
+
+# The Node Class
+
+## Structure and Purpose
+The Node class is the building block of the binary tree. Each node contains:
+
+- Data: The value stored in the node (e.g., an integer).
+- Left Child: A reference to the left child node.
+- Right Child: A reference to the right child node.
+- Height: Keep track of the node's height in the tree.
+
+```java 
+public class Node {
+    int data;
+    int height;
+    Node left;
+    Node right;
+    
+    public Node(int data) {
+        this.data = data;
+        this.height = 1;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+```
+### Explanation:
+
+The Node class has three fields: data, left, and right.
+The constructor initializes the data field and sets left and right to null, indicating that the node initially has no children.
+Added a height attribute to keep track of the node's height in the tree.
+--- 
+
+# Insertion with Balancing
+
+When inserting a node into an AVL tree, we follow these steps:
+
+Standard BST Insertion: Insert the node as you would in a regular binary search tree.
+Update Heights: Update the height of each node from the insertion point up to the root.
+Calculate Balance Factor: For each node, calculate the balance factor.
+Balance the Tree: If the balance factor is not within -1 to 1, perform rotations to rebalance the tree.
+## Types of Imbalances and Rotations Needed
+Left-Left (LL) Case: Right Rotation
+Right-Right (RR) Case: Left Rotation
+Left-Right (LR) Case: Left Rotation on Left Child, then Right Rotation
+Right-Left (RL) Case: Right Rotation on Right Child, then Left Rotation
+```java
+private Node insertNode(Node node, int data) {
+    if (node == null)
+        return new Node(data);
+
+    if (data < node.data)
+        node.left = insertNode(node.left, data);
+    else if (data > node.data)
+        node.right = insertNode(node.right, data);
+    else
+        return node;
+
+    node.height = 1 + Math.max(height(node.left), height(node.right));
+
+    int balance = getBalance(node);
+
+    if (balance > 1 && data < node.left.data)
+        return rightRotate(node);
+
+    if (balance < -1 && data > node.right.data)
+        return leftRotate(node);
+
+    if (balance > 1 && data > node.left.data) {
+        node.left = leftRotate(node.left);
+        return rightRotate(node);
+    }
+
+    if (balance < -1 && data < node.right.data) {
+        node.right = rightRotate(node.right);
+        return leftRotate(node);
+    }
+
+    return node;
+}
+```
+---
+# Left Rotation
+
+A left rotation is performed when a node becomes unbalanced due to an extra node in its right subtree. It restructures the tree to reduce the height of the right subtree.
+
+## When to Use Left Rotation
+Right-Right (RR) Case: Occurs when a node is inserted into the right subtree of the right child of an unbalanced node.
+How Left Rotation Works
+Given an unbalanced node A with right child B:
+
+Assign B's left child to A's right child.
+Set B as the new root of the subtree.
+Assign A as the left child of B.
+```java
+private Node leftRotate(Node x) {
+    Node y = x.right;
+    Node T2 = y.left;
+
+    y.left = x;
+    x.right = T2;
+
+    x.height = Math.max(height(x.left), height(x.right)) + 1;
+    y.height = Math.max(height(y.left), height(y.right)) + 1;
+
+    return y;
+}
+```
+--- 
+# Right Rotation
+
+A right rotation is performed when a node becomes unbalanced due to an extra node in its left subtree. It restructures the tree to reduce the height of the left subtree.
+
+## When to Use Right Rotation
+Left-Left (LL) Case: Occurs when a node is inserted into the left subtree of the left child of an unbalanced node.
+How Right Rotation Works
+Given an unbalanced node A with left child B:
+
+Assign B's right child to A's left child.
+Set B as the new root of the subtree.
+Assign A as the right child of B.
+```java
+private Node rightRotate(Node y) {
+    Node x = y.left;
+    Node T2 = x.right;
+
+    x.right = y;
+    y.left = T2;
+
+    y.height = Math.max(height(y.left), height(y.right)) + 1;
+    x.height = Math.max(height(x.left), height(x.right)) + 1;
+
+    return x;
+}
+```
+---
+# Deletion with Balancing
+
+Deletion in an AVL tree involves:
+
+Standard BST Deletion: Remove the node as in a standard binary search tree.
+Update Heights: Update the height of nodes from the deletion point up to the root.
+Calculate Balance Factor: For each node, calculate the balance factor.
+Balance the Tree: Perform necessary rotations to rebalance the tree if any node becomes unbalanced.
+
+```java
+private Node deleteNode(Node root, int data) {
+    if (root == null)
+        return root;
+
+    if (data < root.data)
+        root.left = deleteNode(root.left, data);
+    else if (data > root.data)
+        root.right = deleteNode(root.right, data);
+    else {
+        if ((root.left == null) || (root.right == null)) {
+            Node temp = (root.left != null) ? root.left : root.right;
+            if (temp == null) {
+                root = null;
+            } else {
+                root = temp;
+            }
+        } else {
+            Node temp = minValueNode(root.right);
+            root.data = temp.data;
+            root.right = deleteNode(root.right, temp.data);
+        }
+    }
+
+    if (root == null)
+        return root;
+
+    root.height = Math.max(height(root.left), height(root.right)) + 1;
+
+    int balance = getBalance(root);
+
+    if (balance > 1 && getBalance(root.left) >= 0)
+        return rightRotate(root);
+
+    if (balance > 1 && getBalance(root.left) < 0) {
+        root.left = leftRotate(root.left);
+        return rightRotate(root);
+    }
+
+    if (balance < -1 && getBalance(root.right) <= 0)
+        return leftRotate(root);
+
+    if (balance < -1 && getBalance(root.right) > 0) {
+        root.right = rightRotate(root.right);
+        return leftRotate(root);
+    }
+
+    return root;
+}
+```
+--- 
+# Traversal Methods
+## In-order traversal
+```java
+    public void traverseInOrder(Node node) {
+        if (node != null) {
+            traverseInOrder(node.left);
+            System.out.print(" " + node.data);
+            traverseInOrder(node.right);
+        }
+    }
+```
+## Pre-order traversal
+```java
+    public void traversePreOrder(Node node) {
+        if (node != null) {
+            System.out.print(" " + node.data);
+            traversePreOrder(node.left);
+            traversePreOrder(node.right);
+        }
+    }
+```
+## Pos-order traversal
+```java
+    public void traversePostOrder(Node node) {
+        if (node != null) {
+            traversePostOrder(node.left);
+            traversePostOrder(node.right);
+            System.out.print(" " + node.data);
+        }
+    }
+```
+---
+# Utility Methods
+## Height and Balance Factor
+```java
+private int height(Node node) {
+    if (node == null)
+        return 0;
+    return node.height;
+}
+
+private int getBalance(Node node) {
+    if (node == null)
+        return 0;
+    return height(node.left) - height(node.right);
+}
+``` 
+## Minimum Value Node
+```java
+private Node minValueNode(Node node) {
+    Node current = node;
+
+    while (current.left != null)
+        current = current.left;
+
+    return current;
+}
+```
+---
+# The Complete BinaryTree Class 
+```java
+public class BinaryTree {
+    Node root;
+
+    private int height(Node N) {
+        if (N == null)
+            return 0;
+        return N.height;
+    }
+
+    private int getBalance(Node N) {
+        if (N == null)
+            return 0;
+        return height(N.left) - height(N.right);
+    }
+
+    private Node rightRotate(Node y) {
+        Node x = y.left;
+        Node T2 = x.right;
+
+        x.right = y;
+        y.left = T2;
+
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+
+        return x;
+    }
+
+    private Node leftRotate(Node x) {
+        Node y = x.right;
+        Node T2 = y.left;
+
+        y.left = x;
+        x.right = T2;
+
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+
+        return y;
+    }
+
+    public void insert(int data) {
+        root = insertNode(root, data);
+    }
+
+    private Node insertNode(Node node, int data) {
+        if (node == null)
+            return (new Node(data));
+
+        if (data < node.data)
+            node.left = insertNode(node.left, data);
+        else if (data > node.data)
+            node.right = insertNode(node.right, data);
+        else
+            return node;
+
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+
+        int balance = getBalance(node);
+
+        if (balance > 1 && data < node.left.data)
+            return rightRotate(node);
+
+        if (balance < -1 && data > node.right.data)
+            return leftRotate(node);
+
+        if (balance > 1 && data > node.left.data) {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        }
+
+        if (balance < -1 && data < node.right.data) {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+
+        return node;
+    }
+
+    public void delete(int data) {
+        root = deleteNode(root, data);
+    }
+
+    private Node deleteNode(Node root, int data) {
+        if (root == null)
+            return root;
+
+        if (data < root.data)
+            root.left = deleteNode(root.left, data);
+        else if (data > root.data)
+            root.right = deleteNode(root.right, data);
+        else {
+            if ((root.left == null) || (root.right == null)) {
+                Node temp = null;
+                if (temp == root.left)
+                    temp = root.right;
+                else
+                    temp = root.left;
+
+                if (temp == null) {
+                    root = null;
+                } else
+                    root = temp;
+            } else {
+                Node temp = minValueNode(root.right);
+
+                root.data = temp.data;
+
+                root.right = deleteNode(root.right, temp.data);
+            }
+        }
+
+        if (root == null)
+            return root;
+
+        root.height = Math.max(height(root.left), height(root.right)) + 1;
+
+        int balance = getBalance(root);
+   
+        if (balance > 1 && getBalance(root.left) >= 0)
+            return rightRotate(root);
+
+        if (balance > 1 && getBalance(root.left) < 0) {
+            root.left = leftRotate(root.left);
+            return rightRotate(root);
+        }
+
+        if (balance < -1 && getBalance(root.right) <= 0)
+            return leftRotate(root);
+
+        if (balance < -1 && getBalance(root.right) > 0) {
+            root.right = rightRotate(root.right);
+            return leftRotate(root);
+        }
+
+        return root;
+    }
+
+    private Node minValueNode(Node node) {
+        Node current = node;
+
+        while (current.left != null)
+            current = current.left;
+
+        return current;
+    }
+
+    public void traverseInOrder(Node node) {
+        if (node != null) {
+            traverseInOrder(node.left);
+            System.out.print(" " + node.data);
+            traverseInOrder(node.right);
+        }
+    }
+
+    public void traversePreOrder(Node node) {
+        if (node != null) {
+            System.out.print(" " + node.data);
+            traversePreOrder(node.left);
+            traversePreOrder(node.right);
+        }
+    }
+
+    public void traversePostOrder(Node node) {
+        if (node != null) {
+            traversePostOrder(node.left);
+            traversePostOrder(node.right);
+            System.out.print(" " + node.data);
+        }
+    }
+}
+```
+--- 
+# Conclusion
+Understanding binary trees and their balanced versions, like AVL trees, is essential for efficient data management in computer science. By implementing insertion and deletion operations with balancing, we ensure that the tree remains efficient for all operations, maintaining O(log n) time complexity.
+---
+# References
+- Visual AVL Simulator: [AVL Simulator](https://www.inf.ufsc.br/~aldo.vw/estruturas/simulador/AVL.html)
+- Data Structures and Algorithms in Java
+--- 
