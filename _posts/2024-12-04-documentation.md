@@ -6,6 +6,7 @@ description: A guide to creating clear and efficient technical documentation for
 tags: formatting documentation guide
 categories: document
 featured: true
+giscus_comments: true
 toc:
   sidebar: left
 ---

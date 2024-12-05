@@ -6,6 +6,7 @@ description: A Comprehensive Guide to Binary Trees and AVL Trees
 tags: data structures, algorithms, java, programming
 categories: algorithms
 featured: true
+giscus_comments: true
 toc:
   sidebar: left
 ---
