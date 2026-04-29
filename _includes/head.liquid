@@ -83,12 +83,6 @@
   </script>
 {% endif %}
 
-<!-- Language -->
-<script src="{{ '/assets/js/language.js' | relative_url | bust_file_cache }}"></script>
-<script>
-  initLanguage();
-</script>
-
 <!-- GeoJSON support via Leaflet -->
 {% if page.map %}
   <link

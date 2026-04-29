@@ -2,40 +2,6 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
-// Language switcher
-.lang-pt,
-.lang-en {
-  display: none;
-}
-
-html[data-lang='pt'] .lang-pt {
-  display: block;
-}
-
-html[data-lang='en'] .lang-en {
-  display: block;
-}
-
-.lang-toggle-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1;
-  padding: 2px 3px;
-  opacity: 0.35;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.75;
-  }
-}
-
-html[data-lang='pt'] .lang-toggle-btn[data-lang='pt'],
-html[data-lang='en'] .lang-toggle-btn[data-lang='en'] {
-  opacity: 1;
-}
-
 // Typography
 
 p,
