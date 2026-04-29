@@ -6,6 +6,7 @@ description: Understanding What is Recursion
 tags: math code
 categories: algorithm
 ---
+
 ### Recursion: The Most Controversial Algorithm in Computing – Why?
 
 The concept of recursion is straightforward: a function that calls itself. But why is it so controversial? In the world of computing, you typically have two options: you either love recursion or hate it.
@@ -13,9 +14,11 @@ The concept of recursion is straightforward: a function that calls itself. But w
 To explore this further, let's establish two key rules:
 
 #### Rule #1
+
 A recursion must always call itself; otherwise, it isn’t recursion.
 
 #### Rule #2
+
 A recursive function requires a base case to prevent it from running infinitely. Beyond this, additional logic can be applied.
 
 ---
@@ -51,14 +54,14 @@ Understanding recursion requires a good grasp of stacks, a simple data structure
 Imagine a stack with items being added sequentially, starting from item 1 up to item 5. If you want to remove item 3, you must first remove item 5, then item 4, to finally access item 3.
 
 | STACK |        |
-|-------|--------|
+| ----- | ------ |
 | 0     | Item 5 |
 | 1     | Item 4 |
 | 2     | Item 3 |
 | 3     | Item 2 |
 | 4     | Item 1 |
 
-A stack operates on a **First-In, Last-Out (FILO)** principle: the first item in is the last item out.  
+A stack operates on a **First-In, Last-Out (FILO)** principle: the first item in is the last item out.
 
 This concept aligns with recursion because, in terms of code execution, computers use a **call stack** to manage function calls. Every time a function is invoked, it is pushed onto the stack, and it’s only removed once the function finishes execution.
 
@@ -79,23 +82,26 @@ def factorial(x):
 Now, calling `factorial(3)` works as follows:
 
 #### First Call:
+
 | FACTORIAL |     |
-|-----------|-----|
+| --------- | --- |
 | x         | 3   |
 
 This function then calls `factorial(2)`.
 
 #### Second Call:
+
 | FACTORIAL |     |
-|-----------|-----|
+| --------- | --- |
 | x         | 2   |
 | x         | 3   |
 
 Next, it calls `factorial(1)`.
 
 #### Third Call:
+
 | FACTORIAL |     |
-|-----------|-----|
+| --------- | --- |
 | x         | 1   |
 | x         | 2   |
 | x         | 3   |

@@ -33,7 +33,7 @@
       "area": "Computer Science",
       "studyType": "Undergraduate Student",
       "startDate": "2022-01-01",
-      "endDate": "2026-01-01"    
+      "endDate": "2026-01-01"
     }
   ],
   "certificates": [
@@ -61,11 +61,7 @@
       "name": "Computer Science",
       "level": "Coursing",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Computer Science",
-        "TI",
-        "IOT"
-      ]
+      "keywords": ["Computer Science", "TI", "IOT"]
     }
   ],
   "languages": [
@@ -80,20 +76,16 @@
       "icon": ""
     },
     {
-      "language":"Spanish",
-      "fluency":"Medium",
-      "icon":""
+      "language": "Spanish",
+      "fluency": "Medium",
+      "icon": ""
     }
   ],
   "interests": [
     {
       "name": "Algorithms",
       "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quick-sort",
-        "Binary Tree",
-        "Math"
-      ]
+      "keywords": ["Quick-sort", "Binary Tree", "Math"]
     }
   ]
 }

@@ -133,7 +133,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: As cruzadas de um jovem programador  # blog_name will be displayed in your blog page
+blog_name: As cruzadas de um jovem programador # blog_name will be displayed in your blog page
 blog_description: Uma aventura em código, tecnologia e reflexões
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
