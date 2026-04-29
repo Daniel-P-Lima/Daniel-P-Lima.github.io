@@ -1,8 +1,8 @@
 ---
 layout: about
-title: about
+title: sobre
 permalink: /
-subtitle: About Me. Contacts. Etc.
+subtitle: Sobre Mim. Contatos. Etc.
 
 profile:
   align: right
