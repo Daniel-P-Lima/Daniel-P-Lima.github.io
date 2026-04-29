@@ -1,1 +1,0 @@
-function initLanguage(){var t,e=localStorage.getItem("lang");"pt"===e||"en"===e?t=e:t=(navigator.language||navigator.userLanguage||"en").toLowerCase().startsWith("pt")?"pt":"en";document.documentElement.setAttribute("data-lang",t)}function setLanguage(t){document.documentElement.setAttribute("data-lang",t),localStorage.setItem("lang",t)}
